@@ -2,13 +2,30 @@
 # -*- coding: utf-8 -*-
 
 """
-kNN
-K nearest neighbor graph construction
-==========================
+kNN (K Nearest Neighbor Graph Construction)
+=====================================================
 
-:Author: Alan Valejo <alanvalejo@gmail.com>, Thiago Faleiros <thiagodepaulo@gmail.com>
+Copyright (C) 2016 Alan Valejo <alanvalejo@gmail.com> All rights reserved
+Copyright (C) 2016 Thiago Faleiros <thiagodepaulo@gmail.com> All rights reserved
 
-The nearest neighbor or, in general, the k nearest neighbor (kNN) graph of a data set is obtained by connecting each instance in the data set to its k closest instances from the data set, where a distance metric defines closeness.
+The nearest neighbor or, in general, the k nearest neighbor (kNN) graph of a
+data set is obtained by connecting each instance in the data set to its k
+closest instances from the data set, where a distance metric defines closeness.
+
+This file is part of kNN.
+
+kNN is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+kNN is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with kNN. If not, see <http://www.gnu.org/licenses/>.
 """
 
 import numpy as np
@@ -23,9 +40,9 @@ from multiprocessing import Process
 from optparse import OptionParser
 from scipy import spatial
 
+__maintainer__ = 'Alan Valejo'
 __author__ = 'Alan Valejo, Thiago Faleiros'
 __email__ = 'alanvalejo@gmail.com', 'thiagodepaulo@gmail.com'
-__maintainer__ = 'Alan Valejo'
 __credits__ = ['Alan Valejo', 'Thiago Faleiros']
 __license__ = 'GNU'
 __docformat__ = 'restructuredtext en'
@@ -131,4 +148,4 @@ def main():
 		write_pajek(options.output, obj_count, edgelist)
 
 if __name__ == "__main__":
-    sys.exit(main())
+	sys.exit(main())
