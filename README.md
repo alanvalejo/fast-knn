@@ -6,7 +6,7 @@ This is an alternative Python implementation of graph construction method kNN (K
 
 **Usage**
 
-> RGCLI execution
+> kNN execution
 
     python knn.py -f input/square.dat -k 3
 
