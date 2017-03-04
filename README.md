@@ -2,13 +2,13 @@
 
 **About**
 
-This is an alternative Python implementation of graph construction method kNN (K Nearest Neighbor Graph Construction). The implementation is based on Kd-tree and Multi-threading and is faster than the original described in the paper, specially for large data sets.
+This is an alternative Python implementation of graph construction method kNN (K Nearest Neighbor Graph Construction), using in Berton and Lopes (2016) [1]. The implementation is based on Kd-tree and Multi-threading and is faster than the original described in the paper, specially for large data sets.
 
 **Usage**
 
 > RGCLI execution
 
-    python knn.py -f input/dataset.dat -l input/dataset.labels -k 3
+    python knn.py -f input/square.dat -k 3
 
 > Input: any numerical dataset with any delimiter for attributes
 
@@ -20,7 +20,6 @@ This is an alternative Python implementation of graph construction method kNN (K
 |:------------------------- |:------------------------- |:--------------------------------------------------------------------- |
 | -f, --filename			| string [FILE]				| Dataset as input file													|
 | -o, --output				| string [FILE]				| Output file default .ncol list										|
-| -l, --label				| string [FILE]				| List of labels points used to construct RGCLI 						|
 | -k, --k					| [1,n] Integer interval	| k for KNN																|
 | -t, --threads				| [0,n] Integer interval	| Number of  threads													|
 | -e, --format				| ['ncol', 'pajek']			| Format output file													|
