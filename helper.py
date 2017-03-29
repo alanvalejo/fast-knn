@@ -31,9 +31,10 @@ along with kNN. If not, see <http://www.gnu.org/licenses/>.
 __maintainer__ = 'Alan Valejo'
 __author__ = 'Alan Valejo, Thiago Faleiros'
 __email__ = 'alanvalejo@gmail.com', 'thiagodepaulo@gmail.com'
-__credits__ = ['Alan Valejo', 'Thiago Faleiros', 'Lilian Berton', 'Jorge Valverde-Rebaza', 'Alneu de Andrade Lopes']
+__credits__ = ['Alan Valejo', 'Thiago Faleiros']
+__homepage__ = 'https://github.com/alanvalejo/knn'
 __license__ = 'GNU'
-__docformat__ = 'restructuredtext en'
+__docformat__ = 'markdown en'
 __version__ = '0.1'
 __date__ = '2016-12-01'
 
