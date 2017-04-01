@@ -19,7 +19,7 @@ This is an alternative Python implementation of graph construction method kNN (K
 | Option					| Domain					| Description															|
 |:------------------------- |:------------------------- |:--------------------------------------------------------------------- |
 | -f, --filename			| string [FILE]				| Dataset as input file													|
-| -o, --output				| string [FILE]				| Output file default .ncol list										|
+| -o, --output				| string [FILE]				| Output file (default .ncol)											|
 | -k, --k					| [1,n] Integer interval	| k for KNN																|
 | -t, --threads				| [0,n] Integer interval	| Number of  threads													|
 | -e, --format				| ['ncol', 'pajek']			| Format output file													|
@@ -37,3 +37,5 @@ This is an alternative Python implementation of graph construction method kNN (K
     year={2016}
 }
 ~~~~~
+
+<div class="footer"> &copy; Copyright (C) 2016 Alan Valejo &lt;alanvalejo@gmail.com&gt; All rights reserved.</div>
