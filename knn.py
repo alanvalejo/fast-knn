@@ -81,11 +81,12 @@ def main():
 	usage = 'usage: python %prog [options] args ...'
 	description = 'kNN Graph Construction'
 	parser.add_option('-f', '--filename', dest='filename', help='Input file', metavar='FILE')
-	parser.add_option('-o', '--output', dest='output', help='Output file', metavar='FILE')
+	parser.add_option('-d', '--directory', action='store', type=str, dest=None, help='[Output directory]')
+	parser.add_option('-o', '--output', action='store', dest=None, type=str, help='[Output filename]')
 	parser.add_option('-k', '--k', dest='k', help='kNN', default=3)
 	parser.add_option('-t', '--threads', dest='threads', help='Number of threads', default=4)
 	parser.add_option('-e', '--format', dest='format', help='Format file', default='ncol')
-	parser.add_option("-c", '--skip_last_column', action='store_false', dest='skip_last_column', default=True)
+	parser.add_option('-c', '--skip_last_column', action='store_false', dest='skip_last_column', default=True)
 
 	# Process options and args
 	(options, args) = parser.parse_args()
@@ -96,11 +97,16 @@ def main():
 		parser.error('required -f [filename] arg.')
 	if options.format not in ['ncol', 'pajek']:
 		parser.error('supported formats: ncol and pajek.')
+	if options.directory is None:
+		options.directory = os.path.dirname(os.path.abspath(options.filename)) + '/'
+	else:
+		if not os.path.exists(options.directory): os.makedirs(options.directory)
+	if not options.directory.endswith('/'): options.directory += '/'
 	if options.output is None:
 		filename, extension = os.path.splitext(os.path.basename(options.filename))
-		if not os.path.exists('output'):
-			os.makedirs('output')
-		options.output = 'output/' + filename + '-knn' + str(options.k) + '.' + options.format
+		options.output = options.directory + filename + '-knn' + str(options.k) + '.' + options.format
+	else:
+		options.output = options.directory + options.output + '.' + options.format
 
 	# Detect wich delimiter and which columns to use is used in the data
 	with open(options.filename, 'r') as f:
