@@ -28,16 +28,14 @@ You should have received a copy of the GNU General Public License
 along with kNN. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import numpy as np
+import csv
 import os
 import sys
-import csv
+import argparse
+import numpy as np
 
-from helper import write_ncol
-from helper import write_pajek
-from multiprocessing import Pipe
-from multiprocessing import Process
-from optparse import OptionParser
+from multiprocessing import Pipe, Process
+from helper import write_ncol, write_pajek
 from scipy import spatial
 
 __maintainer__ = 'Alan Valejo'
@@ -77,28 +75,29 @@ def main():
 	""" Main entry point for the application when run from the command line. """
 
 	# Parse options command line
-	parser = OptionParser()
-	usage = 'usage: python %prog [options] args ...'
-	description = 'kNN Graph Construction'
-	parser.add_option('-f', '--filename', dest='filename', help='Input file', metavar='FILE')
-	parser.add_option('-d', '--directory', action='store', type=str, dest=None, help='[Output directory]')
-	parser.add_option('-o', '--output', action='store', dest=None, type=str, help='[Output filename]')
-	parser.add_option('-k', '--k', dest='k', help='kNN', default=3)
-	parser.add_option('-t', '--threads', dest='threads', help='Number of threads', default=4)
-	parser.add_option('-e', '--format', dest='format', help='Format file', default='ncol')
-	parser.add_option('-c', '--skip_last_column', action='store_false', dest='skip_last_column', default=True)
+	usage = 'use "%(prog)s --help" for more information'
+	description = 'kNN graph construction'
+	parser = argparse.ArgumentParser(description=description, usage=usage, formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=30, width=100))
+	optional = parser._action_groups.pop()
+	required = parser.add_argument_group('required arguments')
+	required.add_argument('-f', '--filename', dest='filename', action='store', type=str, metavar='FILE', default=None, help='name of the %(metavar)s to be loaded')
+	optional.add_argument('-d', '--directory', dest='directory', action='store', type=str, metavar='DIR', default=None, help='directory of FILE if it is not current directory')
+	optional.add_argument('-o', '--output', dest='output', action='store', type=str, metavar='FILE', default=None, help='name of the %(metavar)s to be save')
+	required.add_argument('-l', '--label', dest='label', action='store', type=str, metavar='FILE', default=None, help='list of labels points used to construct RGCLI')
+	optional.add_argument('-k', '--k', dest='k', action='store', type=int, metavar='int', default=3, help='kNN (default: %(default)s)')
+	optional.add_argument('-t', '--threads', dest='threads', action='store', type=int, metavar='int', default=4, help='number of threads (default: %(default)s)')
+	optional.add_argument('-e', '--format', dest='format', action='store', choices=['ncol', 'pajek'], type=str, metavar='str', default='ncol', help='format output file. Allowed values are ' + ', '.join(['ncol', 'pajek']) + ' (default: %(default)s)')
+	optional.add_argument('-c', '--skip_last_column', dest='skip_last_column', action='store_false', default=True, help='skip last column (default: true)')
+	parser._action_groups.append(optional)
+	options = parser.parse_args()
 
 	# Process options and args
-	(options, args) = parser.parse_args()
-	k = int(options.k) # kNN
-	threads = int(options.threads) # Number of threads
-
 	if options.filename is None:
 		parser.error('required -f [filename] arg.')
 	if options.format not in ['ncol', 'pajek']:
 		parser.error('supported formats: ncol and pajek.')
 	if options.directory is None:
-		options.directory = os.path.dirname(os.path.abspath(options.filename)) + '/'
+		options.directory = os.path.dirname(os.path.abspath(options.filename))
 	else:
 		if not os.path.exists(options.directory): os.makedirs(options.directory)
 	if not options.directory.endswith('/'): options.directory += '/'
@@ -106,7 +105,7 @@ def main():
 		filename, extension = os.path.splitext(os.path.basename(options.filename))
 		options.output = options.directory + filename + '-knn' + str(options.k) + '.' + options.format
 	else:
-		options.output = options.directory + options.output + '.' + options.format
+		options.output = options.directory + options.output
 
 	# Detect wich delimiter and which columns to use is used in the data
 	with open(options.filename, 'r') as f:
@@ -129,13 +128,13 @@ def main():
 	kdtree = spatial.KDTree(data)
 
 	# Size of the set of vertices by threads, such that V = {V_1, ..., V_{threads} and part = |V_i|
-	part = obj_count / threads
+	part = obj_count / options.threads
 
 	# Starting Knn processing
 	receivers = []
 	for i in xrange(0, obj_count, part):
 		sender, receiver = Pipe()
-		p = Process(target=knn, args=(obj_set[i:i + part], data, kdtree, k, sender))
+		p = Process(target=knn, args=(obj_set[i:i + part], data, kdtree, options.k, sender))
 		p.daemon = True
 		p.start()
 		receivers.append(receiver)
