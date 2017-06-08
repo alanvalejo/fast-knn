@@ -8,7 +8,7 @@ This is an alternative Python implementation of graph construction method kNN (K
 
 > kNN execution
 
-    python knn.py -f input/square.dat -k 3
+    python knn.pyo -f input/square.dat -k 3
 
 > Input: any numerical dataset with any delimiter for attributes
 
