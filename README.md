@@ -8,7 +8,7 @@ This is an alternative Python implementation of graph construction method kNN (K
 
 > kNN execution
 
-    python knn.pyo -f input/square.dat -k 3
+    python -OO knn.pyo -f input/square.dat -k 3
 
 > Input: any numerical dataset with any delimiter for attributes
 
@@ -16,14 +16,14 @@ This is an alternative Python implementation of graph construction method kNN (K
 
 **Parameters**
 
-| Option					| Domain					| Description															|
-|:------------------------- |:------------------------- |:--------------------------------------------------------------------- |
-| -f, --filename			| string [FILE]				| Dataset as input file													|
-| -o, --output				| string [FILE]				| Output file (default .ncol)											|
-| -k, --k					| [1,n] Integer interval	| k for KNN																|
-| -t, --threads				| [0,n] Integer interval	| Number of  threads													|
-| -e, --format				| ['ncol', 'pajek']			| Format output file													|
-| -c, --skip_last_column	| [0,n] Integer interval	| Skip the last column													|
+| Option					| Domain					| Required	| Default	| Description															|
+|:------------------------- |:------------------------- | --------- | --------- |:--------------------------------------------------------------------- |
+| -f, --filename			| string [FILE]				| yes		| -			| Dataset as input file													|
+| -o, --output				| string [FILE]				| no		| ncol		| Output file															|
+| -k, --k					| [1,n] Integer interval	| no		| 3			| k for KNN																|
+| -t, --threads				| [0,n] Integer interval	| no		| 4			| Number of  threads													|
+| -e, --format				| ['ncol', 'pajek']			| no		| ncol		| Format output file													|
+| -c, --skip_last_column	| bool						| no		| true		| Skip the last column													|
 
 **Dependencies**
 
