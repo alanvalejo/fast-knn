@@ -48,7 +48,7 @@ Please contact the author for problems and bug report.
 * Can modify source-code and distribute modifications (derivative works)
 * Giving credit to the author by citing the paper [1]
 * License will expire in 2018, July
-*
+
 **References**
 
 > [1] Valejo, A.; Ferreira V.; Rocha Filho, G. P.; Oliveira, M. C. F.; and Lopes, A. A.: One-mode projection-based multilevel approach for community detection in bipartite networks. (2017)
