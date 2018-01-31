@@ -8,7 +8,7 @@ This is an alternative Python implementation of graph construction method kNN (K
 
 > kNN execution
 
-    python -OO knn.pyo -f input/square.dat -k 3
+    python main.py -f input/square.dat -k 3
 
 > Input: any numerical dataset with any delimiter for attributes
 
@@ -47,7 +47,8 @@ Please contact the author for problems and bug report.
 * Non-commercial use only
 * Can modify source-code and distribute modifications (derivative works)
 * Giving credit to the author by citing the paper [1]
-
+* License will expire in 2018, July
+*
 **References**
 
 > [1] Valejo, A.; Ferreira V.; Rocha Filho, G. P.; Oliveira, M. C. F.; and Lopes, A. A.: One-mode projection-based multilevel approach for community detection in bipartite networks. (2017)
