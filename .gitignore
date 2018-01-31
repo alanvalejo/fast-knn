@@ -5,6 +5,7 @@
 !.gitignore
 !COPYING.md
 !README.md
-!knn.pyo
-!helper.pyo
+!knn.so
+!main.py
+!input
 # etc...
