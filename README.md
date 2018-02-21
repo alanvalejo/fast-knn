@@ -4,6 +4,10 @@
 
 This is an alternative Python implementation of graph construction method kNN (K Nearest Neighbor Graph Construction), used in Berton and Lopes (2016) [1]. The implementation is based on Kd-tree and Multi-threading and is faster than the original described in the paper, specially for large data sets.
 
+**Download**
+
+* You can download the MkNN software in http://www.alanvalejo.com.br/software?name=Fast+kNN
+
 **Usage**
 
 > kNN execution
@@ -48,10 +52,6 @@ Please contact the author for problems and bug report.
 * Can modify source-code and distribute modifications (derivative works)
 * Giving credit to the author by citing the papers
 * License will expire in 2018, July, and will be renewed
-
-**Download**
-
-* You can download the MkNN software in http://www.alanvalejo.com.br/software?id=3
 
 **References**
 
