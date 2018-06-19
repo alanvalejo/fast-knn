@@ -4,10 +4,6 @@
 
 This is an alternative Python implementation of graph construction method kNN (K Nearest Neighbor Graph Construction), used in Berton and Lopes (2016) [1]. The implementation is based on Kd-tree and Multi-threading and is faster than the original described in the paper, specially for large data sets.
 
-**Download**
-
-* You can download the Fast kNN software in http://www.alanvalejo.com.br/software?name=Fast+kNN
-
 **Usage**
 
 > kNN execution
@@ -22,12 +18,13 @@ This is an alternative Python implementation of graph construction method kNN (K
 
 | Option					| Domain					| Required	| Default	| Description															|
 |:------------------------- |:------------------------- | --------- | --------- |:--------------------------------------------------------------------- |
-| -f, --filename			| string [FILE]				| yes		| -			| Dataset as input file													|
-| -o, --output				| string [FILE]				| no		| ncol		| Output file															|
+| -f, --filename			| string [FILE]				| yes		| -			| dataset as input file													|
+| -o, --output				| string [FILE]				| no		| ncol		| output file															|
 | -k, --k					| [1,n] Integer interval	| no		| 3			| k for KNN																|
-| -t, --threads				| [0,n] Integer interval	| no		| 4			| Number of  threads													|
-| -e, --format				| ['ncol', 'pajek']			| no		| ncol		| Format output file													|
-| -c, --skip_last_column	| bool						| no		| true		| Skip the last column													|
+| -t, --threads				| [0,n] Integer interval	| no		| 4			| number of  threads													|
+| -e, --format				| ['ncol', 'pajek']			| no		| ncol		| format output file													|
+| -c, --skip_last_column	| bool						| no		| true		| skip the last column													|
+| -c, --skip_rows	| [1,n-1]						| no		| None		| skip rows													|
 
 **Dependencies**
 
@@ -44,14 +41,14 @@ Please contact the author for problems and bug report.
 * Ph.D. candidate at University of São Paolo (USP), Brazil.
 * alanvalejo@gmail.com.
 
-**License (For a complete version of the license, see the COPYING.md)**
+**License (COPYING.md)**
 
 * Can be used for creating unlimited applications
 * Can be distributed in binary or object form only
 * Non-commercial use only
 * Can modify source-code and distribute modifications (derivative works)
-* Giving credit to the author by citing the papers
-* License will expire in 2018, July, and will be renewed
+* Giving credit to the author by citing the papers [1]
+* License will expire in 2018, July, and will be renewed.
 
 **References**
 
