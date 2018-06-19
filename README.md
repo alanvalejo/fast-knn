@@ -4,6 +4,10 @@
 
 This is an alternative Python implementation of graph construction method kNN (K Nearest Neighbor Graph Construction), used in Berton and Lopes (2016) [1]. The implementation is based on Kd-tree and Multi-threading and is faster than the original described in the paper, specially for large data sets.
 
+**Download**
+
+* You can download the MOb software in http://www.alanvalejo.com.br/software?name=knn
+
 **Usage**
 
 > kNN execution
