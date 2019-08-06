@@ -6,7 +6,7 @@ This is an alternative Python implementation of graph construction method kNN (K
 
 **Download**
 
-* You can download the MOb software in http://www.alanvalejo.com.br/software?name=knn
+* You can download the KNN software in http://www.alanvalejo.com.br/software?name=knn
 
 **Usage**
 
@@ -43,28 +43,26 @@ Please contact the author for problems and bug report.
 
 * Alan Valejo.
 * Ph.D. candidate at University of São Paolo (USP), Brazil.
-* alanvalejo@gmail.com.
+* alanvalejo@icmc.ups.br.
 
-**License (COPYING.md)**
+**License and credits**
 
-* Can be used for creating unlimited applications
-* Can be distributed in binary or object form only
-* Non-commercial use only
-* Can modify source-code and distribute modifications (derivative works)
+* The GNU General Public License v3.0
 * Giving credit to the author by citing the papers [1]
-* License will expire in 2018, July, and will be renewed.
 
 **References**
 
-> [1] Lilian Berton and Thiago de Paulo Faleiros and Alan Valejo and Jorge Valverde-Rebaza and Alneu de Andrade Lopes: RGCLI: Robust Graph that Considers Labeled Instances for Semi-Supervised Learning. Neurocomputing. 2017
+> [1] Berton, Lilian and Faleiros, Thiago P. and Valejo, Alan and Valverde-Rebaza, Jorge Lopes, A. A., Rgcli: robust graph that considers labeled instances for semi-supervised learning, in Neurocomputing, p. 238-248, vol. 226, 2016, doi: https://doi.org/10.1016/j.neucom.2016.11.053
 
 ~~~~~{.bib}
-@article{Berton_2016,
-    author={Lilian Berton and Thiago de Paulo Faleiros and Alan Valejo and
-    Jorge Valverde-Rebaza and Alneu de Andrade Lopes},
-    title={RGCLI: Robust Graph that Considers Labeled Instances for Semi-Supervised Learning},
-    journal={Neurocomputing},
-    year={2016}
+@article{berton2016rgcli,
+author = {Berton, Lilian and Faleiros, Thiago P. and Valejo, Alan and Valverde-Rebaza, Jorge Lopes, A. A.},
+title = {Rgcli: robust graph that considers labeled instances for semi-supervised learning},
+journal = {Neurocomputing},
+year = {2016},
+pages = {238-248},
+volume = {226},
+doi = {https://doi.org/10.1016/j.neucom.2016.11.053}
 }
 ~~~~~
 
